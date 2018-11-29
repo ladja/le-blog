@@ -10,15 +10,18 @@
 
     <title><?=$title?></title>
 
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+    <!--Datatable -->
     <link href="http://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css
 " rel="stylesheet">
 
   </head>
+
   <body>
 
-    
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
       <div class="container">
         <a class="navbar-brand" href="index.php">Gestion des clients</a>
@@ -33,13 +36,16 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?php if($activeMenu=='orders'){ echo 'active';}?>" href="orders.php">Commandes</a>
+              <a class="nav-link <?php if($activeMenu=='nom'){ echo 'active';}?>" href="addUsers.php">nom</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?=($activeMenu=='clients')?'active':''?>" href="clients.php">Clients</a>
+              <a class="nav-link <?=($activeMenu=='prenom')?'active':''?>" href="addUsers.php">prenom</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?=($activeMenu=='employes')?'active':''?>"" href="employes.php">Employés</a>
+              <a class="nav-link <?=($activeMenu=='email')?'active':''?>" href="addUsers.php">email</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="logout.php">Déconnexion</a>
             </li>
           </ul>
         </div>
@@ -53,7 +59,7 @@
           <h1 class="mt-5"><?=$title?></h1>
           <?php
 
-            include('tpl/'.$vue);
+            include('tpl/'.$vue.'.phtml');
 
             ?>
         </div>

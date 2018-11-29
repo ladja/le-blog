@@ -1,29 +1,28 @@
 <?php
-include('config/config.php');
-include('lib/bdd.lib.php');
+include('../config/config.php');
+include('../lib/bdd.lib.php');
 
-$vue='addUser';
+$vue='addUsers';
 $title = 'Ajouter un utilisateur';
-
+$activeMenu='addUser';
 $erreur ='';
 
 $values = [
-
-        'aut_name'=>''
-        'aut_first_name'=>''
-        'aut_email'=>''
-        'aut_pasword'=>''
-        'aut_bio'=>''
-        'aut_avatar'=>''
-        'aut_user_name'=>''];
+'nom'=>'',
+'prenom'=>'',
+'email'=>'',
+'password'=>'',
+'bio'=>'',
+'avatar'=>'',
+'speudo'=>''];
         
-        $tab_erreur =
-        [
-        'nom'=>'Le nom doit être rempli !',
-        'prenom'=>'Le prénom doit être rempli !',
-        'email'=>'L\'email doit être rempli !',
-        'password'=>'Le mot de passe ne peut être vide'
-        ];
+$tab_erreur =
+[
+'nom'=>'Le nom doit être rempli !',
+'prenom'=>'Le prénom doit être rempli !',
+'email'=>'L\'email doit être rempli !',
+'password'=>'Le mot de passe ne peut être vide'
+];
         
         try
         {
@@ -53,7 +52,7 @@ $values = [
                     $dbh = connexion();
         
                     /**2 : Prépare ma requête SQL */
-                    $sth = $dbh->prepare('INSERT INTO user VALUES(NULL,:email,:password,:prenom,:nom,:dateCreated,:bio,:avatar)');
+                    $sth = $dbh->prepare('INSERT INTO user VALUES(NULL,:password,:nom,:prenom,:email,:bio,:avatar,:speudo)');
         
                     /** 3 : executer la requête */
                     $sth->execute($values);

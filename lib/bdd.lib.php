@@ -8,12 +8,3 @@ function connexion()
 
     return $dbh;
 }
-
-function userIsConnected()
-{
-    if(!isset($_SESSION['connect']) || $_SESSION['connect'] != true)
-    {
-        header('Location:login.php');
-        exit();
-    }
-}
